@@ -1,0 +1,21 @@
+{
+  "name": "tally.",
+  "version": "0.0.0",
+  "authors": [
+    "greg5green <greggreen@gmail.com>"
+  ],
+  "description": "An easy way to tally stuff up on the web.",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.0",
+    "sass-bootstrap": "~3.0.2",
+    "modernizr": "~2.7.1"
+  }
+}

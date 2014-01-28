@@ -1,0 +1,12 @@
+// Variables
+// Mixins
+@mixin font-size($sizeValue, $heightValue) {
+    font-size: ($sizeValue * 10) + px;
+    font-size: $sizeValue + rem;
+    line-height: $heightValue;
+}
+
+@mixin rem($fontSize) {
+    font-size: ($fontSize * 10) + px;
+    font-size: $fontSize + rem;
+}
