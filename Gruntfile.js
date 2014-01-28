@@ -111,7 +111,7 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('build', ['compass:dist', 'copy:dist', 'modernizr', 'mocha']);
+    grunt.registerTask('build', ['compass:dist', 'copy:dist', 'modernizr']);
     grunt.registerTask('serve', ['compass:dist', 'copy:dist', 'connect', 'watch']);
     grunt.registerTask('default', ['compass:dist', 'copy:dist']);
 };
