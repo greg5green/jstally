@@ -6,18 +6,26 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
+        <title>jsTally</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-
         <link rel="stylesheet" href="assets/css/style.css">
-
         <script src="assets/js/vendor/modernizr.min.js"></script>
     </head>
-    <body>
-        <p>Future home of tallying.</p>
+    <body class="container">
+        <h1>jsTally</h1>
+
+        <div class="panel panel-default">
+            <form id="tally-input-form" class="panel-body">
+                <div class="form-group">
+                    <label for="tally-input">Please enter what you'd like to tally below. Separate each item by hitting return.</label>
+                    <textarea id="tally-input" class="form-control" rows="15"></textarea>
+                </div>
+                <button type="submit" id="convert-tally-input" class="btn btn-primary">Start</button>
+            </form>
+        </div>
 
         <script src="assets/js/vendor/jquery.min.js"></script>
-        <script src="assets/js/main.js"></script>
+        <script src="assets/js/jstally.js"></script>
     </body>
 </html>
