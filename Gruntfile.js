@@ -5,6 +5,7 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
 
     grunt.initConfig({
+        clean: ['dist/*'],
         compass: {
             dist: {
                 options: {
@@ -111,7 +112,7 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('build', ['compass:dist', 'copy:dist', 'modernizr']);
+    grunt.registerTask('build', ['clean', 'compass:dist', 'copy:dist', 'modernizr']);
     grunt.registerTask('serve', ['compass:dist', 'copy:dist', 'connect', 'watch']);
-    grunt.registerTask('default', ['compass:dist', 'copy:dist']);
+    grunt.registerTask('default', ['clean', 'compass:dist', 'copy:dist']);
 };
