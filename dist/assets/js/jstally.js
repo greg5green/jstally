@@ -3,5 +3,5 @@
         return param;
     }
 
-    window.tally = tally;
+    window.jstally = tally;
 })(jQuery);

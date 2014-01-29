@@ -10,9 +10,9 @@
                     two = [1, 2, 3],
                     three = { myKey: 'value' };
 
-                assert(one, tally(one));
-                assert(two, tally(two));
-                assert(three, tally(three));
+                assert(one, jstally(one));
+                assert(two, jstally(two));
+                assert(three, jstally(three));
             });
         });
     });
