@@ -81,14 +81,6 @@ module.exports = function(grunt) {
             },
             uglify: false
         },
-        mocha: {
-            test: {
-                options: {
-                    run: true,
-                    urls: ['http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/index.html']
-                }
-            }
-        },
         watch: {
             compass: {
                 files: ['app/sass/{,*/}*.{scss,sass}'],
@@ -113,6 +105,6 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('build', ['clean', 'compass:dist', 'copy:dist', 'modernizr']);
-    grunt.registerTask('serve', ['compass:dist', 'copy:dist', 'connect', 'watch']);
+    grunt.registerTask('serve', ['compass:dist', 'copy:dist', 'modernizr', 'connect', 'watch']);
     grunt.registerTask('default', ['clean', 'compass:dist', 'copy:dist']);
 };
