@@ -57,6 +57,12 @@ module.exports = function(grunt) {
                     },
                     {
                         expand: true,
+                        cwd: 'app/bower_components/lodash/dist',
+                        src: ['lodash.min.js'],
+                        dest: 'dist/assets/js/vendor'
+                    },
+                    {
+                        expand: true,
                         cwd: 'app/js',
                         src: ['{,*/}*.js'],
                         dest: 'dist/assets/js'

@@ -4,18 +4,18 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <title>jsTally</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href="assets/css/style.css">
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" href="assets/css/style.css" />
         <script src="assets/js/vendor/modernizr.min.js"></script>
     </head>
     <body class="container">
         <h1>jsTally</h1>
 
-        <div class="panel panel-default">
+        <!-- <div class="panel panel-default"> -->
             <form id="tally-input-form" class="panel-body">
                 <div class="form-group">
                     <label for="tally-input">Please enter what you'd like to tally below. Separate each item by hitting return.</label>
@@ -23,9 +23,11 @@
                 </div>
                 <button type="submit" id="convert-tally-input" class="btn btn-primary">Start</button>
             </form>
-        </div>
+        <!-- </div> -->
 
+        <!-- TODO: concatenate all of these into one file -->
         <script src="assets/js/vendor/jquery.min.js"></script>
+        <script src="assets/js/vendor/lodash.min.js"></script>
         <script src="assets/js/jstally.js"></script>
     </body>
 </html>
