@@ -1,4 +1,4 @@
-(function() {
+;(function() {
     'use strict';
 
     describe('TallyItemModel', function() {
@@ -7,6 +7,8 @@
 
             foo.should.be.equal(true);
         });
+
+        it('should be able to find an item by name', function() {});
 
     });
 

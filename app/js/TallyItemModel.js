@@ -1,8 +1,9 @@
 ;(function($, exports) {
-    function TallyItemModel() {
-        this;
+    function TallyItemModel(attrs) {
+
     }
 
+    TallyItemModel.records = {};
 
     exports.TallyItemModel = TallyItemModel;
 })(jQuery, window);
