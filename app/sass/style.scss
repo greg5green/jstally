@@ -1,2 +1,32 @@
 @import '../bower_components/sass-bootstrap/lib/bootstrap';
 @import 'settings';
+
+.table {
+    & > thead,
+    & > tbody {
+        & > tr {
+            & > th,
+            & > td {
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
+.table-increment,
+.table-decrement {
+    text-align: center;
+    width: 90px;
+}
+
+.glyphicon {
+    font-size: 130%;
+}
+
+.glyphicon-plus-sign {
+    color: green;
+}
+
+.glyphicon-minus-sign {
+    color: red;
+}

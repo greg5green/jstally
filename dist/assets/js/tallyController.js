@@ -1,42 +1,3 @@
-// ;var jsTally = (function($) {
-
-//     function splitUserInput(input) {
-//         return input.split('\n');
-//     }
-
-//     function sortUserInput(input) {
-//         return input.sort(function(a, b) {
-//             return a > b;
-//         });
-//     }
-
-//     return {
-//         init: function() {
-//             $('#tally-input-form').on('submit', function(event) {
-//                 event.preventDefault();
-
-//                 handlerUserInput(event);
-//             });
-//         },
-
-//         handleUserInput: function(event) {
-//             var userInput = splitUserInput(event.target.elements[0].value),
-//                 sortedUserInput = sortUserInput(userInput);
-
-//             this.createDomNodesFromUserInput(sortedUserInput);
-//         },
-
-//         createDomNodesFromUserInput: function (input) {
-
-//         }
-//     }
-
-// })(jQuery);
-
-// jQuery(function() {
-//     jsTally.init();
-// });
-
 ;(function($, exports) {
     'use strict';
 
@@ -45,15 +6,52 @@
     }
 
     TallyController.prototype.init = function() {
-        $('#tally-input-form').on('submit', function(event) {
-            event.preventDefault();
+        $('#tally-input-form').on('submit', $.proxy(_addItemsToStore, this));
 
-            // handlerUserInput(event);
-        });
+        // $('.container').on('click', 'td.table-increment', $.proxy(_incrementItem, this));
     };
 
     $(function() {
         exports.tallyController = new TallyController();
-    })
+    });
+
+
+    // Private functions
+    function _addItem(item) {
+        this.tallyItemModel.add(item);
+    }
+
+    function _addItemsToStore(event) {
+        var userInput = event.target[0].value,
+            items = helper.splitUserInput(userInput);
+
+        event.preventDefault();
+
+        // Create the store if it doesn't exist yet
+        if (!this.tallyItemModel) {
+            _createStore.call(this);
+        }
+
+        // Add the items from the user input
+        _.forEach(items, _addItem, this);
+
+        // _drawTallyItemView(this.tallyItemModel.getAllRecords());
+    }
+
+    function _createStore() {
+        this.tallyItemModel = new TallyItemModel();
+    }
+
+    // function _drawTallyItemView(items) {
+    //     // TODO: Clean this up.
+    //     var template = _.template($( "#items-view" ).html(), { items: items });
+    //     $('#content-panel').empty().append(template);
+    // }
+
+    // function _incrementItem(event) {
+    //     var target = event.target.parentNode.parentNode
+    //     this.tallyItemModel.increment($(target).find('.table-item').html());
+    //     _drawTallyItemView(this.tallyItemModel.getAllRecords());
+    // }
 
 })(jQuery, window);

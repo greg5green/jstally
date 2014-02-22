@@ -7628,3 +7628,29 @@ td.visible-print {
     display: none !important;
   }
 }
+/* line 9, ../../../app/sass/style.scss */
+.table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td {
+  vertical-align: middle;
+}
+
+/* line 17, ../../../app/sass/style.scss */
+.table-increment,
+.table-decrement {
+  text-align: center;
+  width: 90px;
+}
+
+/* line 22, ../../../app/sass/style.scss */
+.glyphicon {
+  font-size: 130%;
+}
+
+/* line 26, ../../../app/sass/style.scss */
+.glyphicon-plus-sign {
+  color: green;
+}
+
+/* line 30, ../../../app/sass/style.scss */
+.glyphicon-minus-sign {
+  color: red;
+}

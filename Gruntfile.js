@@ -51,6 +51,12 @@ module.exports = function(grunt) {
                     },
                     {
                         expand: true,
+                        cwd: 'app/bower_components/sass-bootstrap/dist/fonts',
+                        src: ['{,*/}*.*'],
+                        dest: 'dist/assets/fonts'
+                    },
+                    {
+                        expand: true,
                         cwd: 'app/bower_components/jquery',
                         src: ['jquery.min.js'],
                         dest: 'dist/assets/js/vendor'
@@ -97,7 +103,7 @@ module.exports = function(grunt) {
                 }
             },
             copy: {
-                files: ['app/{,*/}*.html', 'app/img/{,*/}*.*', 'app/js/{,*/}*.js'],
+                files: ['app/{,*/}*.html', 'app/img/{,*/}*.*', 'app/bower_components/sass-bootstrap/dist/fonts/{,*/}*.*', 'app/js/{,*/}*.js'],
                 tasks: ['copy:dist'],
                 options: {
                     spawn: false,

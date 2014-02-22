@@ -19,8 +19,8 @@
         it('should have be able to add new tally items with an initial count of 0', function() {
             tallyItemModel.add('JavaScript');
 
-            tallyItemModel.should.have.a.deep.property('records[0].item', 'JavaScript');
-            tallyItemModel.should.have.a.deep.property('records[0].count', 0);
+            tallyItemModel.should.have.a.deep.property('records[0].item').that.equals('JavaScript');
+            tallyItemModel.should.have.a.deep.property('records[0].count').that.equals(0);
         });
 
         it('should be able to increment a record count by item name', function() {
@@ -35,10 +35,10 @@
             tallyItemModel.should.have.a.deep.property('records[0].count').that.equals(0);
         });
 
-        it('should be able to find an item by name', function() {
-            var jsItem = tallyItemModel.find('JavaScript');
+        it('should be able to return a clone of all records', function() {
+            var tallyItems = tallyItemModel.getAllRecords();
 
-            jsItem.should.deep.equal({ item: 'JavaScript', count: 0 });
+            tallyItems.should.deep.equal([{ item: 'JavaScript', count: 0 }]);
         });
 
     });
