@@ -1,5 +1,6 @@
 <?php
 
+    // Switch this to http://php.net/manual/en/function.fputcsv.php
     function outputCSV($data) { // sourced from http://stackoverflow.com/questions/217424/create-a-csv-file-for-a-user-in-php#answer-6493794
         function __outputCSV(&$vals, $key, $filehandler) {
             fputcsv($filehandler, $vals); // add parameters if you want
