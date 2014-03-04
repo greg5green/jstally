@@ -4,20 +4,24 @@
     function TallyView() {
         this.itemsTemplate = _.template(
             '<table class="table table-striped table-responsive">' +
-                '<tr>' +
-                    '<th class="table-increment">Increment</th>' +
-                    '<th class="table-decrement">Decrement</th>' +
-                    '<th>Item</th>' +
-                    '<th>Count</th>' +
-                '</tr>' +
-                '<% _.each(items, function(item) { %>' +
-                '<tr>' +
-                    '<td class="table-increment"><span class="glyphicon glyphicon-plus-sign"></span></td>' +
-                    '<td class="table-decrement"><span class="glyphicon glyphicon-minus-sign"></span></td>' +
-                    '<td class="table-item"><%- item.item %></td>' +
-                    '<td class="table-count"><%- item.count %></td>' +
-                '</tr>' +
-                '<% }); %>' +
+                '<thead>' +
+                    '<tr>' +
+                        '<th class="table-increment">Increment</th>' +
+                        '<th class="table-decrement">Decrement</th>' +
+                        '<th>Item</th>' +
+                        '<th>Count</th>' +
+                    '</tr>' +
+                '</thead>' +
+                '<tbody>' +
+                    '<% _.each(items, function(item) { %>' +
+                    '<tr>' +
+                        '<td class="table-increment"><span class="glyphicon glyphicon-plus-sign"></span></td>' +
+                        '<td class="table-decrement"><span class="glyphicon glyphicon-minus-sign"></span></td>' +
+                        '<td class="table-item"><%- item.item %></td>' +
+                        '<td class="table-count"><%- item.count %></td>' +
+                    '</tr>' +
+                    '<% }); %>' +
+                '</tbody>' +
             '</table>'
         );
 
@@ -30,7 +34,7 @@
         this.$contentPanel.html(this.itemsTemplate({ items: data }));
     };
 
-    TallyView.prototype.bind = function(event, callback) {
+    TallyView.prototype.bindEvent = function(event, callback) {
         if (event === 'startTally') {
             this.$tallyStartBtn.on('click', $.proxy(startTally, this, callback));
         }

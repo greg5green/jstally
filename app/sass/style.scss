@@ -13,10 +13,14 @@
     }
 }
 
-.table-increment,
-.table-decrement {
+td.table-increment,
+td.table-decrement {
     text-align: center;
+    @include user-select(none);
     width: 90px;
+    span {
+        cursor: pointer;
+    }
 }
 
 .glyphicon {

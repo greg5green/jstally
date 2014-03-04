@@ -5,9 +5,9 @@
         this.model = model;
         this.view = view;
 
-        this.view.bind('startTally', $.proxy(addItemsToModel, this));
-        this.view.bind('incrementItem', $.proxy(incrementItem, this));
-        this.view.bind('decrementItem', $.proxy(decrementItem, this));
+        this.view.bindEvent('startTally', $.proxy(addItemsToModel, this));
+        this.view.bindEvent('incrementItem', $.proxy(incrementItem, this));
+        this.view.bindEvent('decrementItem', $.proxy(decrementItem, this));
     }
 
     exports.tally = exports.tally || {};
