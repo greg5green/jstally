@@ -8,10 +8,10 @@
             before(function() {
 
                 // Set up any needed spies
-                sinon.spy(TallyItemModel.prototype, 'add');
+                sinon.spy(tally.ItemModel.prototype, 'add');
 
                 // create the html needed for init
-                $('body').append($('<form id="tally-input-form" style="display: none;"><textarea></textarea></form>'));
+                $('body').append('<form id="tally-input-form" style="display: none;"><textarea></textarea></form>');
 
                 // manually init to set up handlers
                 tallyController.init();

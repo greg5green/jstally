@@ -6,8 +6,6 @@
     }
 
     TallyItemModel.prototype.add = function(itemName) {
-        // var uniqueId = _.uniqueId();
-
         this.records.push({
             count: 0,
             item: itemName
@@ -15,13 +13,13 @@
     };
 
     TallyItemModel.prototype.increment = function(itemName) {
-        var item = _find.call(this, itemName);
+        var item = find.call(this, itemName);
 
         item.count++;
     };
 
     TallyItemModel.prototype.decrement = function(itemName) {
-        var item = _find.call(this, itemName);
+        var item = find.call(this, itemName);
 
         item.count--;
     };
@@ -30,12 +28,12 @@
         return _.clone(this.records);
     };
 
+    exports.tally = exports.tally || {};
+    exports.tally.ItemModel = TallyItemModel;
 
     // Private functions
-    function _find(itemName) {
+    function find(itemName) {
         return _.find(this.records, { item: itemName });
     }
-
-    exports.TallyItemModel = TallyItemModel;
 
 })(jQuery, window);

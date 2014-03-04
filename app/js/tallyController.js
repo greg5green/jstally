@@ -1,57 +1,39 @@
 ;(function($, exports) {
     'use strict';
 
-    function TallyController() {
-        this.init();
+    function TallyController(model, view) {
+        this.model = model;
+        this.view = view;
+
+        this.view.bind('startTally', $.proxy(addItemsToModel, this));
+        this.view.bind('incrementItem', $.proxy(incrementItem, this));
+        this.view.bind('decrementItem', $.proxy(decrementItem, this));
     }
 
-    TallyController.prototype.init = function() {
-        $('#tally-input-form').on('submit', $.proxy(_addItemsToStore, this));
-
-        // $('.container').on('click', 'td.table-increment', $.proxy(_incrementItem, this));
-    };
-
-    $(function() {
-        exports.tallyController = new TallyController();
-    });
-
+    exports.tally = exports.tally || {};
+    exports.tally.Controller = TallyController;
 
     // Private functions
-    function _addItem(item) {
-        this.tallyItemModel.add(item);
+    function addItem(item) {
+        this.model.add(item);
     }
 
-    function _addItemsToStore(event) {
-        var userInput = event.target[0].value,
-            items = helper.splitUserInput(userInput);
+    function addItemsToModel(items) {
+        _.forEach(items, addItem, this);
 
-        event.preventDefault();
-
-        // Create the store if it doesn't exist yet
-        if (!this.tallyItemModel) {
-            _createStore.call(this);
-        }
-
-        // Add the items from the user input
-        _.forEach(items, _addItem, this);
-
-        // _drawTallyItemView(this.tallyItemModel.getAllRecords());
+        this.view.renderItems(this.model.getAllRecords());
     }
 
-    function _createStore() {
-        this.tallyItemModel = new TallyItemModel();
+    function decrementItem(itemName) {
+        this.model.decrement(itemName);
+
+        this.view.renderItems(this.model.getAllRecords());
     }
 
-    // function _drawTallyItemView(items) {
-    //     // TODO: Clean this up.
-    //     var template = _.template($( "#items-view" ).html(), { items: items });
-    //     $('#content-panel').empty().append(template);
-    // }
+    function incrementItem(itemName) {
+        this.model.increment(itemName);
 
-    // function _incrementItem(event) {
-    //     var target = event.target.parentNode.parentNode
-    //     this.tallyItemModel.increment($(target).find('.table-item').html());
-    //     _drawTallyItemView(this.tallyItemModel.getAllRecords());
-    // }
+        this.view.renderItems(this.model.getAllRecords());
+    }
 
 })(jQuery, window);

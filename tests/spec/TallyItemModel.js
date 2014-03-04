@@ -5,7 +5,7 @@
         var tallyItemModel;
 
         before(function() {
-            tallyItemModel = new TallyItemModel();
+            tallyItemModel = new tally.ItemModel();
         });
 
         after(function() {
