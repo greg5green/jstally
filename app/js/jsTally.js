@@ -1,4 +1,4 @@
-;(function($) {
+;(function() {
     'use strict';
 
     function JsTally() {
@@ -8,5 +8,4 @@
     }
 
     new JsTally();
-
-})(jQuery);
+})();

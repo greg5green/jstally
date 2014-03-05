@@ -7,7 +7,7 @@
             })
         },
         splitUserInput: function(input) {
-            return _.map(input.split('\n'), function(item) {
+            return input.split('\n').map(function(item) {
                 return $.trim(item);
             });
         }

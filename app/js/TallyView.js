@@ -1,4 +1,4 @@
-;(function(jQuery, exports) {
+;(function($, _, exports) {
     'user strict';
 
     function TallyView() {
@@ -36,17 +36,17 @@
 
     TallyView.prototype.bindEvent = function(event, callback) {
         if (event === 'startTally') {
-            this.$tallyStartBtn.on('click', $.proxy(startTally, this, callback));
+            this.$tallyStartBtn.on('click', startTally.bind(this, callback));
         }
 
         else if (event === 'decrementItem') {
             this.$contentPanel.on('click', '.table-decrement span',
-                    $.proxy(getItemNameAndExecuteCallback, this, callback));
+                    getItemNameAndExecuteCallback.bind(this, callback));
         }
 
         else if (event === 'incrementItem') {
             this.$contentPanel.on('click', '.table-increment span',
-                    $.proxy(getItemNameAndExecuteCallback, this, callback));
+                    getItemNameAndExecuteCallback.bind(this, callback));
         }
     };
 
@@ -69,4 +69,4 @@
         callback(items);
     }
 
-})($, window);
+})(jQuery, _, window);

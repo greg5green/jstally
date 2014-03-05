@@ -1,4 +1,4 @@
-;(function($, exports) {
+;(function(_, exports) {
     'use strict';
 
     function TallyItemModel() {
@@ -36,4 +36,4 @@
         return _.find(this.records, { item: itemName });
     }
 
-})(jQuery, window);
+})(_, window);

@@ -1,13 +1,13 @@
-;(function($, exports) {
+;(function(_, exports) {
     'use strict';
 
     function TallyController(model, view) {
         this.model = model;
         this.view = view;
 
-        this.view.bindEvent('startTally', $.proxy(addItemsToModel, this));
-        this.view.bindEvent('incrementItem', $.proxy(incrementItem, this));
-        this.view.bindEvent('decrementItem', $.proxy(decrementItem, this));
+        this.view.bindEvent('startTally', addItemsToModel.bind(this));
+        this.view.bindEvent('incrementItem', incrementItem.bind(this));
+        this.view.bindEvent('decrementItem', decrementItem.bind(this));
     }
 
     exports.tally = exports.tally || {};
@@ -36,4 +36,4 @@
         this.view.renderItems(this.model.getAllRecords());
     }
 
-})(jQuery, window);
+})(_, window);
