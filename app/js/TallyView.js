@@ -1,5 +1,5 @@
 ;(function($, _, exports) {
-    'user strict';
+    'use strict';
 
     function TallyView() {
         this.itemsTemplate = _.template(
