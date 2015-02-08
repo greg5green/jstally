@@ -9,7 +9,7 @@ gulp.task 'clean', (cb) ->
   del 'dist', cb
 
 gulp.task 'fonts', ->
-  gulp.src 'app/bower_components/sass-bootstrap/dist/fonts/*'
+  gulp.src 'bower_components/sass-bootstrap/dist/fonts/*'
     .pipe gulp.dest 'dist/assets/fonts'
 
 gulp.task 'scripts', (cb) ->
@@ -22,12 +22,12 @@ gulp.task 'scripts:js', ->
     .pipe gulp.dest 'dist/assets/js'
 
 gulp.task 'scripts:vendor', ->
-  gulp.src ['app/bower_components/jquery/dist/jquery.min.js', 'app/bower_components/lodash/dist/lodash.min.js']
+  gulp.src ['bower_components/jquery/dist/jquery.min.js', 'bower_components/lodash/dist/lodash.min.js']
     .pipe gulp.dest 'dist/assets/js/vendor'
 
 gulp.task 'styles', ->
   gulp.src 'app/sass/**/*'
-    .pipe $.sass()
+    .pipe $.sass includePaths: ['bower_components/']
     .pipe $.autoprefixer cascade: false
     .pipe gulp.dest 'dist/assets/css'
 

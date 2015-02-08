@@ -16,7 +16,10 @@
   "dependencies": {
     "jquery": "~2.1.0",
     "sass-bootstrap": "~3.0.2",
-    "modernizr": "~2.7.1",
     "lodash": "~2.4.1"
+  },
+  "devDependencies": {
+    "mocha": "~2.1.0",
+    "chai": "~1.10.0"
   }
 }
