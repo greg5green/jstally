@@ -3,3 +3,5 @@ app/bower_components/*
 tests/bower_components/*
 .sass-cache/*
 dist/*
+.DS_Store
+.idea
