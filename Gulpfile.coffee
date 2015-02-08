@@ -22,7 +22,7 @@ gulp.task 'scripts:js', ->
     .pipe gulp.dest 'dist/assets/js'
 
 gulp.task 'scripts:vendor', ->
-  gulp.src ['bower_components/jquery/dist/jquery.min.js', 'bower_components/lodash/dist/lodash.min.js']
+  gulp.src ['bower_components/jquery/dist/jquery.min.js', 'bower_components/lodash/lodash.min.js']
     .pipe gulp.dest 'dist/assets/js/vendor'
 
 gulp.task 'styles', ->
