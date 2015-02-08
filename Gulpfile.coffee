@@ -3,7 +3,9 @@
 del = require 'del'
 gulp = require 'gulp'
 $ = require('gulp-load-plugins')(camelize: true)
+mainBowerFiles = require 'main-bower-files'
 run = require 'run-sequence'
+argv = require('yargs').argv
 
 gulp.task 'clean', (cb) ->
   del 'dist', cb
@@ -22,8 +24,15 @@ gulp.task 'scripts:js', ->
     .pipe gulp.dest 'dist/assets/js'
 
 gulp.task 'scripts:vendor', ->
-  gulp.src ['bower_components/jquery/dist/jquery.min.js', 'bower_components/lodash/lodash.min.js']
-    .pipe gulp.dest 'dist/assets/js/vendor'
+  filteredBowerFiles = mainBowerFiles().filter (file) -> !(/bootstrap-sass/.test file)
+  isProd = argv.prod?
+
+  gulp.src filteredBowerFiles
+    .pipe $.sourcemaps.init()
+    .pipe $.concat 'vendor.js'
+    .pipe $.if isProd, $.uglify()
+    .pipe $.sourcemaps.write '.'
+    .pipe gulp.dest 'dist/assets/js'
 
 gulp.task 'styles', ->
   gulp.src 'app/sass/**/*'
